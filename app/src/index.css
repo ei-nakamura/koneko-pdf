@@ -1,0 +1,48 @@
+/**
+ * @file index.css
+ * @description グローバルスタイルシート。
+ *
+ * アプリケーション全体に適用される基本スタイルを定義する:
+ * - Tailwind CSS のインポートとカスタムテーマ変数（カラーパレット、フォント）の設定
+ * - body 要素のベーススタイル（背景グラデーション、フォント、余白など）
+ * - カスタムアニメーション（スピナー用の回転アニメーション）の定義
+ */
+@import "tailwindcss";
+
+@theme {
+  --color-app-bg: #0f0f1a;
+  --color-app-surface: #1a1a2e;
+  --color-app-deep: #16213e;
+  --color-app-border: #3a3a5c;
+  --color-app-accent: #f59e42;
+  --color-app-text: #e0e0e0;
+  --color-app-muted: #6b7280;
+  --color-app-card: #2a2a3d;
+  --color-app-overlay: #23233a;
+
+  --font-sans: 'DM Sans', 'Noto Sans JP', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+@layer base {
+  body {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%);
+    color: #e0e0e0;
+    font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+    padding: 20px 12px 40px;
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+@layer base {
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}
+
+@layer utilities {
+  .animate-spin-custom {
+    animation: spin 0.8s linear infinite;
+  }
+}
